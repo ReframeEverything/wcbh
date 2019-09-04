@@ -1,3 +1,2 @@
-# We can be heroes
-
-Web and Api repository for We Can Be Heroes
+'''We can be heroes api'''
+Api repository for we can be heroes
