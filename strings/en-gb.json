@@ -1,0 +1,21 @@
+{
+  "invalid_credentials": "Invalid Credentials!",
+  "user_username_exists": "An account user with that username already exists.",
+  "user_email_exists": "An account with the given email already exists.",
+  "user_not_found": "Account not found.",
+  "user_deleted": "Account deleted.",
+  "user_logged_out": "Account successfully logged out.",
+  "user_registered": "Account created successfully.",
+  "user_already_logged_out": "Account is already logged out.",
+  "UNAUTHORIZED": "Unauthorized. You do not have permission to perform this action.",
+
+  "AD_NOT_FOUND": "Advertisement not found",
+  "AD_CREATED": "Advertisement successfully created.",
+  "AD_DELETED": "Advertisement successfuly deleted.",
+
+  "MEMBERSHIP_EXISTS": "Account was already added to this organization.",
+  "MEMBERSHIP_CREATED": "Account has been added to organization.",
+  "MEMBERSHIP_NOT_FOUND": "Account either does not exists or is not associated with this organization.",
+  "MEMBERSHIP_UPDATE": "Account role successuly updated for this organization",
+  "MEMBERSHIP_DELETED": "Account has been removed from this organization."
+}

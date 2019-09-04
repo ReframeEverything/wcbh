@@ -1,0 +1,11 @@
+Flask-JWT-Extended
+Marshmallow-SQLAlchemy
+Flask-RESTful
+Flask-SQLAlchemy
+Flask-Marshmallow
+Requests-OAuthlib
+Marshmallow
+uwsgi
+python-dotenv
+Dotenv
+Flask
