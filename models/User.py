@@ -12,7 +12,7 @@ import string
 class UserModel(db.Model):
     __tablename__ = "users"
     id = db.Column(db.String(50), primary_key=True)
-    playerId = db.Column(db.string(9), unique=True)
+    playerId = db.Column(db.String(9), unique=True)
     username = db.Column(db.String(36), unique=True)
     ip = db.Column(db.String(50), nullable=True)
     created_at = db.Column(db.TIMESTAMP(), default=datetime.datetime.utcnow)
