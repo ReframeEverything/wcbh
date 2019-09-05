@@ -30,7 +30,7 @@ class Test(Resource):
 
 
 class UsernameCheck(Resource):
-    def get(self, username: str):
+    def get(self, username):
         user = UserModel.find_by_username(username.lower())
         return{"available": user is None}, 200
 
@@ -69,7 +69,7 @@ class Authenticate(Resource):
 
 
 class User(Resource):
-    def get(self, _id: str):
+    def get(self, _id):
         user = UserModel.find_by_id(_id)
         Settings = UserSettingsModel.find_by_user(_id)
 
@@ -79,7 +79,7 @@ class User(Resource):
 
         return {'message': 'Account not found'}, 404
 
-    def put(self, _id: str):
+    def put(self, _id):
         user = UserModel.find_by_id(_id)
         if user:
             data = user_schema.load(request.get_json(), partial=True)
@@ -93,7 +93,7 @@ class User(Resource):
 
         return {'message': 'Account not found'}, 404
 
-    def delete(self, _id: str):
+    def delete(self, _id):
         user = UserModel.find_by_id(_id)
         if user:
             user.delete_from_db()
@@ -103,7 +103,7 @@ class User(Resource):
 
 
 class Settings(Resource):
-    def put(self, _id: str):
+    def put(self, _id):
         user = UserModel.find_by_id(_id)
         settings = UserSettingsModel.find_by_user(_id)
 
