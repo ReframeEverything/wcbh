@@ -24,15 +24,15 @@ class UserModel(db.Model):
     )
 
     @classmethod
-    def find_by_id(cls, _id):
+    def find_by_id(cls, _id: str) -> "UserModel":
         return cls.query.filter_by(id=_id).first()
 
     @classmethod
-    def find_by_playerId(cls, playerId):
+    def find_by_playerId(cls, playerId: str) -> "UserModel":
         return cls.query.filter_by(playerId=playerId).first()
 
     @classmethod
-    def find_by_username(cls, username):
+    def find_by_username(cls, username: str) -> "UserModel":
         return cls.query.filter_by(username=username).first()
 
     @staticmethod
@@ -40,11 +40,11 @@ class UserModel(db.Model):
         return (random.sample(random.choice(string.ascii_uppercase), 3) +
                 random.sample(range(0, 10), 6))
 
-    def save_to_db(self):
+    def save_to_db(self) -> None:
         db.session.add(self)
         db.session.commit()
 
-    def delete_from_db(self):
+    def delete_from_db(self) -> None:
         db.session.delete(self)
         db.session.commit()
 
@@ -62,13 +62,13 @@ class UserSettingsModel(db.Model):
     user = db.relationship("UserModel")
 
     @classmethod
-    def find_by_user(cls, user_id):
+    def find_by_user(cls, user_id) -> "UserSettingsModel":
         return cls.query.filter_by(user_id=user_id).first()
 
-    def save_to_db(self):
+    def save_to_db(self) -> None:
         db.session.add(self)
         db.session.commit()
 
-    def delete_from_db(self):
+    def delete_from_db(self) -> None:
         db.session.delete(self)
         db.session.commit()
