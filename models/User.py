@@ -40,11 +40,11 @@ class UserModel(db.Model):
         return (random.sample(random.choice(string.ascii_uppercase), 3) +
                 random.sample(range(0, 10), 6))
 
-    def save_to_db(self) -> None:
+    def save_to_db(self):
         db.session.add(self)
         db.session.commit()
 
-    def delete_from_db(self) -> None:
+    def delete_from_db(self):
         db.session.delete(self)
         db.session.commit()
 
@@ -65,10 +65,10 @@ class UserSettingsModel(db.Model):
     def find_by_user(cls, user_id):
         return cls.query.filter_by(user_id=user_id).first()
 
-    def save_to_db(self) -> None:
+    def save_to_db(self):
         db.session.add(self)
         db.session.commit()
 
-    def delete_from_db(self) -> None:
+    def delete_from_db(self):
         db.session.delete(self)
         db.session.commit()
