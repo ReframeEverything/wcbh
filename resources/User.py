@@ -24,6 +24,11 @@ user_schema = UserSchema()
 settings_schema = UserSettingsSchema()
 
 
+class Test(Resource):
+    def get(self):
+        return {'message': 'Server Currently running'}, 200
+
+
 class UsernameCheck(Resource):
     def get(self, username: str):
         user = UserModel.find_by_username(username.lower())
@@ -84,7 +89,7 @@ class User(Resource):
                 user.last_online = datetime.datetime.utcnow
             user.updated_at = datetime.datetime.utcnow
             user.save_to_db()
-            return {'message': 'Account updated'}, 200
+            return {'user': user_schema.dump(user)}, 200
 
         return {'message': 'Account not found'}, 404
 
@@ -117,6 +122,6 @@ class Settings(Resource):
             user.updated_at = datetime.datetime.utcnow
             user.save_to_db()
             settings.save_to_db()
-            return {'message': 'Account updated'}, 200
+            return {"settings": settings_schema.dump(settings)}, 200
 
         return {'message': 'Account not found'}, 404

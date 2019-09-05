@@ -14,7 +14,8 @@ from resources.User import (
     Authenticate,
     User,
     Settings,
-    UsernameCheck
+    UsernameCheck,
+    Test
 )
 
 app = Flask(__name__)
@@ -97,6 +98,7 @@ def revoked_token_callback():
 '''
 
 # USER
+api.add_resource(Test, "/test")
 api.add_resource(Register, "/register")
 api.add_resource(UsernameCheck, "/checkavailability/<username>")
 api.add_resource(Authenticate, "/auth")
