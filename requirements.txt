@@ -8,3 +8,4 @@ Marshmallow
 uwsgi
 python-dotenv
 Flask
+psycopg2
