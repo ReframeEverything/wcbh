@@ -6,8 +6,8 @@ from marshmallow import ValidationError
 #from dotenv import Dotenv
 from dotenv import load_dotenv
 
-from db import db
-from ma import ma
+#from db import db
+#from ma import ma
 
 from resources.User import (
     Register,
@@ -21,7 +21,7 @@ from resources.User import (
 app = Flask(__name__)
 load_dotenv(verbose=True)
 #dotenv = Dotenv(os.path.join(os.path.dirname(__file__), ".env"))
-#os.environ.update(dotenv)
+# os.environ.update(dotenv)
 
 app.config.from_object("default_config")
 app.config.from_envvar(
@@ -34,14 +34,6 @@ api = Api(app)
 jwt = JWTManager(app)  # not creating /auth
 migrate = Migrate(app, db)
 
-@app.before_first_request
-def create_tables():
-    db.create_all()
-
-
-@app.errorhandler(ValidationError)
-def handle_marshmallow_validation(err):
-    return jsonify(err.messages), 400
 
 '''# create all tables and startup
 @app.before_first_request
@@ -115,7 +107,7 @@ api.add_resource(User, "/user/<_id>")
 api.add_resource(Settings, "/usersettings/<_id>")
 
 if __name__ == '__main__':
-    from db import db
+    #from db import db
     db.init_app(app)
     ma.init_app(app)
     app.run(port=5000, debug=True)
