@@ -7,5 +7,4 @@ Requests-OAuthlib
 Marshmallow
 uwsgi
 python-dotenv
-Dotenv
 Flask

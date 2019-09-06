@@ -3,8 +3,8 @@ from flask_restful import Api
 from flask_jwt_extended import JWTManager
 from flask_migrate import Migrate
 from marshmallow import ValidationError
-from dotenv import Dotenv
-#from dotenv import load_dotenv
+#from dotenv import Dotenv
+from dotenv import load_dotenv
 
 from db import db
 from ma import ma
@@ -19,9 +19,9 @@ from resources.User import (
 )
 
 app = Flask(__name__)
-# load_dotenv(verbose=True)
-dotenv = Dotenv(os.path.join(os.path.dirname(__file__), ".env"))
-os.environ.update(dotenv)
+load_dotenv(verbose=True)
+#dotenv = Dotenv(os.path.join(os.path.dirname(__file__), ".env"))
+#os.environ.update(dotenv)
 
 app.config.from_object("default_config")
 app.config.from_envvar(
